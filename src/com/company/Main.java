@@ -16,21 +16,17 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
 
-       askAndWriteToFile(in,"filename.txt");
-    }
-
-    //recursion
-    static void askAndWriteToFile(Scanner in, String fileName) {
-        System.out.println("enter something: ");
-        String input = in.nextLine();
-        if(input.equalsIgnoreCase("end")){
-            return;
+        while(true){
+            System.out.println("enter something: ");
+            String input = in.nextLine();
+            if(input.equalsIgnoreCase("end")){
+                break;
+            }
+            writeToFile("filename.txt",input);
         }
-        writeToFile(fileName,input);
-        askAndWriteToFile(in, fileName);
     }
 
-    static void writeToFile(String fileName, String input){
+    static void writeToFile(String fileName,String input){
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
