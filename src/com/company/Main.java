@@ -1,42 +1,40 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Files n = new Files();
-        n.openFile();
+        n.openFile("filename.txt");
         n.readFile();
         n.closeFile();
+
+        Scanner in = new Scanner(System.in);
+        System.out.println("enter something: ");
+        String input = in.nextLine();
+        writeToFile("filename.txt",input);
+
+
+
     }
 
-    public static class Files {
-        private Scanner myFile;
+    static void writeToFile(String fileName,String input){
 
-        public void openFile(){
-            try {
-                myFile = new Scanner(new File("filename.txt"));
-                //satır satır oku
-                myFile.useDelimiter("\n");
-            } catch (FileNotFoundException e) {
-                System.out.println("couldn't find the file");
-            }
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            writer.append("\n");
+            writer.append(input);
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
-        public void readFile(){
-            while(myFile.hasNext()){
-                String a= myFile.next();
-                System.out.println(a);
-
-            }
-        }
-
-        public void closeFile(){
-            myFile.close();
-        }
     }
 }
 
