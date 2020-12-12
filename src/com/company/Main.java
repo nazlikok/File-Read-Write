@@ -19,6 +19,8 @@ public class Main {
         public void openFile(){
             try {
                 myFile = new Scanner(new File("filename.txt"));
+                //satır satır oku
+                myFile.useDelimiter("\n");
             } catch (FileNotFoundException e) {
                 System.out.println("couldn't find the file");
             }
@@ -27,10 +29,7 @@ public class Main {
         public void readFile(){
             while(myFile.hasNext()){
                 String a= myFile.next();
-                String b= myFile.next();
-                String c= myFile.next();
-
-                System.out.printf("%s %s %s \n",a,b,c);
+                System.out.println(a);
 
             }
         }
