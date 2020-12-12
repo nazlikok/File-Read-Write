@@ -8,9 +8,13 @@ import java.util.Scanner;
 
 public class Main {
 
+    public static final String FILENAME_TXT = "filename.txt";
+
     public static void main(String[] args) {
         Files n = new Files();
-        n.openFile("filename.txt");
+        n.openFile(FILENAME_TXT);
+        String[] lines=n.readFile();
+        addLineNumbers(FILENAME_TXT,lines);
         n.readFile();
         n.closeFile();
 
@@ -22,7 +26,7 @@ public class Main {
             if(input.equalsIgnoreCase("end")){
                 break;
             }
-            writeToFile("filename.txt",input);
+            writeToFile(FILENAME_TXT,input);
         }
     }
 
@@ -38,6 +42,23 @@ public class Main {
             e.printStackTrace();
         }
 
+    }
+    static void addLineNumbers(String fileName, String[] lines){
+        for(int i=0; i< lines.length; i++){
+            String line= lines[i];
+            line = String.format("%03d: ", i)+ line;
+            lines[i]= line;
+        }
+
+        String text = String.join("\n", lines);
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(text);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

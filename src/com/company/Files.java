@@ -17,12 +17,14 @@ public class Files {
         }
     }
 
-    public void readFile(){
+    public String[] readFile(){
+        String allText = "";
         while(myFile.hasNext()){
             String a= myFile.next();
-            System.out.println(a);
-
+            allText= allText+a+"\n";
         }
+        System.out.println(allText);
+        return allText.split("\n"); // split returns array
     }
 
     public void closeFile(){
