@@ -2,10 +2,7 @@ package com.company;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.Scanner;
-import java.io.BufferedReader;
-import java.io.IOException;
 
 public class Main {
 
@@ -13,6 +10,7 @@ public class Main {
         Files n = new Files();
         n.openFile();
         n.readFile();
+        n.closeFile();
     }
 
     public static class Files {
@@ -30,10 +28,15 @@ public class Main {
             while(myFile.hasNext()){
                 String a= myFile.next();
                 String b= myFile.next();
+                String c= myFile.next();
 
-                System.out.printf("%s %s \n",a,b);
+                System.out.printf("%s %s %s \n",a,b,c);
 
             }
+        }
+
+        public void closeFile(){
+            myFile.close();
         }
     }
 }
