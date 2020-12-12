@@ -1,4 +1,4 @@
-000: hello world
-001: it is rainy today
-002: isnt it
-003: hello
+hello world
+it is rainy today
+isnt it
+hello

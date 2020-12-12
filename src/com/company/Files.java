@@ -23,7 +23,6 @@ public class Files {
             String a= myFile.next();
             allText= allText+a+"\n";
         }
-        System.out.println(allText);
         return allText.split("\n"); // split returns array
     }
 
