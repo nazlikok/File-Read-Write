@@ -10,9 +10,12 @@ public class Main {
         File temp = new File("filename.txt");
         try {
             Scanner myFile = new Scanner(temp);
+            System.out.println(myFile.nextLine());
+            System.out.println(myFile.nextLine());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
 
     }
 }
