@@ -15,12 +15,15 @@ public class Main {
         n.closeFile();
 
         Scanner in = new Scanner(System.in);
-        System.out.println("enter something: ");
-        String input = in.nextLine();
-        writeToFile("filename.txt",input);
 
-
-
+        while(true){
+            System.out.println("enter something: ");
+            String input = in.nextLine();
+            if(input.equalsIgnoreCase("end")){
+                break;
+            }
+            writeToFile("filename.txt",input);
+        }
     }
 
     static void writeToFile(String fileName,String input){
